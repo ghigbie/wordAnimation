@@ -1,7 +1,9 @@
 var solution = [81, 50, 57, 117, 90, 51, 74, 104, 100, 72, 86, 115, 89, 88, 82, 112, 98, 50, 53, 122, 73, 81, 61, 61],
     header,
     section,
-    c = function(input) { return atob(input.reduce(function(a,b) { return a + String.fromCharCode(b); },"")); },
+    c = function(input) { 
+    	return atob(input.reduce(function(a,b) { 
+    		return a + String.fromCharCode(b); },"")); },
     i = 0,
     j = 0,
     charCounts = {},
@@ -28,12 +30,12 @@ $(function() {
         c = c.toLowerCase();
         charCounts[c]--;
     });
-
+// *****************************************
     //George added this
     var congrats = "Congradulations!";
     var congratsArray = congrats.split("");
     console.log(congratsArray);
-
+// *****************************************
 
     var f = function() {
 
@@ -45,7 +47,7 @@ $(function() {
             s = null;
 
             var floater = $("<span>" + y + "</span>"),
-                isTop = y === solution[j];
+                isTop = y === congratsArray[j]; //<-----George changed this to the congrats array
 
             // move the character to the top or the bottom
             if(isTop)
