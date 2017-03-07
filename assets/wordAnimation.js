@@ -1,5 +1,3 @@
-alert("javaScript is now connected");
-
 var solution = [81, 50, 57, 117, 90, 51, 74, 104, 100, 72, 86, 115, 89, 88, 82, 112, 98, 50, 53, 122, 73, 81, 61, 61],
     header,
     section,
@@ -10,7 +8,7 @@ var solution = [81, 50, 57, 117, 90, 51, 74, 104, 100, 72, 86, 115, 89, 88, 82, 
     started = 0,
     ended = 0,
     x, y, s;
-    
+
 $(function() {
     // we're gonna use these a lot
     header = $('header');
