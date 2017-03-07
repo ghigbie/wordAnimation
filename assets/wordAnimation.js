@@ -29,6 +29,12 @@ $(function() {
         charCounts[c]--;
     });
 
+    //George added this
+    var congrats = "Congradulations!";
+    var congratsArray = congrats.split("");
+    console.log(congratsArray);
+
+
     var f = function() {
 
         // test if we're finished
