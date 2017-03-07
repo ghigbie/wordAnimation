@@ -30,12 +30,11 @@ $(function() {
         c = c.toLowerCase();
         charCounts[c]--;
     });
-// *****************************************
+// *******************************************************
     //George added this
-    var congrats = "Congradulations!";
+    var congrats = "Congratulations!";
     var congratsArray = congrats.split("");
-    console.log(congratsArray);
-// *****************************************
+// *******************************************************
 
     var f = function() {
 
@@ -47,14 +46,17 @@ $(function() {
             s = null;
 
             var floater = $("<span>" + y + "</span>"),
-                isTop = y === congratsArray[j]; //<-----George changed this to the congrats array
+                isTop = y === solution[j]; 
+
 
             // move the character to the top or the bottom
             if(isTop)
-            {
+  			{
                 if(!j) header.html('');
-
-                header.append("&nbsp;"); // make room for the new character
+                header.append(congratsArray[j]); //<-----George changed this to appeand from the congrats array
+                //congratsArray = congratsArray.shift();
+                console.log(j);
+                //header.append("&nbsp;"); // make room for the new character //<-----George changed this to make the design look better with the new font
                 j++; // increment the solution counter
             }
             else if(y.match(/[A-Za-z]/)) // we're going to count all the alpha characters
@@ -73,7 +75,8 @@ $(function() {
             if(isTop || s)
             {
                 // add a marking element for the start position of the animation
-                section.html(section.html().substr(0,i) + "<span id='start" + i + "'>" + (y.match(/([^A-Za-z])|./)[1] || "_") + "</span>" + section.html().substr(i+1));
+                section.html(section.html().substr(0,i) + "<span id='start" + i + "'>" 
+                	+ (y.match(/([^A-Za-z])|./)[1] || "_") + "</span>" + section.html().substr(i+1));
 
                 var start = $("#start" + i);
                 var rect = start[0].getBoundingClientRect(); // get the px position of the start element
@@ -104,10 +107,11 @@ $(function() {
 
                     if(isTop)
                     {
-                        // replace the &nbsp; with the right character
-                        var arr = header.text().split('');
-                        arr[j] = y;
-                        header.html(header.html().substr(0, header.html().length - 1) + y);
+
+                         // replace the &nbsp; with the right character
+                         // var arr = header.text().split('');
+                         // arr[j] = y;
+                         // header.html(header.html().substr(0, header.html().length - 1) + y);
                     }
                     else
                     {
@@ -119,11 +123,14 @@ $(function() {
                     // finished another animation
                     ended++;
 
+
+
                     if(started === ended)
                     {
-                        finalChecks();
+                        //finalChecks();
                     }
-                }, 1000);
+                }, 500);
+
             }
 
             i++;
